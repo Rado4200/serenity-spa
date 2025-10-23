@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa & Wellness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FDFBF8;
+            --cream-light: #FFFEFB;
+            --aqua: #C8E6E3;
+            --aqua-dark: #B0D8D4;
+            --teal: #5F9B95;
+            --teal-dark: #4A8078;
+            --teal-light: #75ADA7;
+            --teal-deeper: #3D6B65;
+            --teal-accent: #6BA599;
+            --sage: #8BA888;
+            --forest: #2C5F54;
+            --jade: #4D857D;
+            --moss: #5A7C6F;
+            --beige: #EADBC8;
+            --beige-light: #F5EEDF;
+            --charcoal: #333;
+            --charcoal-light: #555;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--aqua) 50%, var(--cream) 100%);
+            position: relative;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(95, 155, 149, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(200, 230, 227, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(234, 219, 200, 0.08) 0%, transparent 70%),
+                url("data:image/svg+xml,%3Csvg width='1400' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,150 Q200,100 400,150 T800,150 Q1000,100 1200,150 T1400,150' fill='none' stroke='rgba(95,155,149,0.18)' stroke-width='1.5'/%3E%3Cpath d='M0,300 Q250,250 500,300 T1000,300 Q1150,250 1300,300 T1400,300' fill='none' stroke='rgba(200,230,227,0.22)' stroke-width='1.5'/%3E%3Cpath d='M0,450 Q200,400 400,450 T800,450 Q1000,400 1200,450 T1400,450' fill='none' stroke='rgba(95,155,149,0.15)' stroke-width='1.5'/%3E%3Cpath d='M0,600 Q300,550 600,600 T1200,600 T1400,600' fill='none' stroke='rgba(117,173,167,0.18)' stroke-width='1.5'/%3E%3Cpath d='M0,750 Q250,700 500,750 T1000,750 Q1150,700 1300,750 T1400,750' fill='none' stroke='rgba(200,230,227,0.20)' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-size: 100% 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(253, 251, 248, 0.94);
+            backdrop-filter: blur(20px) saturate(180%);
+            box-shadow: 
+                0 1px 0 rgba(95, 155, 149, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.04),
+                0 8px 24px rgba(0, 0, 0, 0.02);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            will-change: transform;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(253, 251, 248, 0.98);
+            box-shadow: 
+                0 1px 0 rgba(95, 155, 149, 0.18),
+                0 6px 16px rgba(0, 0, 0, 0.06),
+                0 12px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--forest);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+            color: var(--jade);
+        }
+
+        .logo svg {
+            filter: drop-shadow(0 2px 4px rgba(95, 155, 149, 0.25));
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .logo:hover svg {
+            filter: drop-shadow(0 4px 8px rgba(95, 155, 149, 0.35));
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--teal-dark), var(--teal-light));
+            transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .nav-links a:hover {
+            color: var(--teal-dark);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .lang-btn {
+            background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(200,230,227,0.4));
+            border: 1px solid rgba(95, 155, 149, 0.35);
+            color: var(--teal-dark);
+            padding: 0.4rem 0.75rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            border-radius: 6px;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 6px rgba(95, 155, 149, 0.10);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal-deeper));
+            color: white;
+            border-color: var(--teal-dark);
+            box-shadow: 0 4px 12px rgba(95, 155, 149, 0.30);
+            transform: translateY(-1px);
+        }
+
+        .lang-btn:hover {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+            color: white;
+            border-color: var(--teal);
+            box-shadow: 0 4px 12px rgba(95, 155, 149, 0.30);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--teal-dark);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 400;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            letter-spacing: 2px;
+            text-shadow: 
+                0 2px 8px rgba(44, 95, 84, 0.15),
+                0 4px 16px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: var(--charcoal-light);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, var(--jade), var(--forest));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 8px 24px rgba(77, 133, 125, 0.30),
+                0 4px 12px rgba(0, 0, 0, 0.10);
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 
+                0 14px 36px rgba(77, 133, 125, 0.40),
+                0 8px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+        }
+
+        .section {
+            position: relative;
+            padding: 6rem 2rem;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.2rem;
+            text-align: center;
+            color: var(--forest);
+            margin-bottom: 1rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--charcoal-light);
+            font-size: 1.15rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        /* IMPROVED ABOUT US SECTION */
+        .about-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 60px rgba(95, 155, 149, 0.25),
+                0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .about-image-container:hover {
+            transform: perspective(1000px) rotateY(0deg) scale(1.03);
+            box-shadow: 
+                0 30px 80px rgba(95, 155, 149, 0.35),
+                0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        .about-image-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(95, 155, 149, 0.15), rgba(200, 230, 227, 0.1));
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .about-image-container:hover .about-image-overlay {
+            opacity: 1;
+        }
+
+        .about-text {
+            padding: 2rem 0;
+        }
+
+        .about-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--jade);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--charcoal-light);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(95, 155, 149, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .about-feature:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateX(10px);
+            box-shadow: 0 8px 20px rgba(95, 155, 149, 0.15);
+        }
+
+        .about-feature svg {
+            flex-shrink: 0;
+        }
+
+        .about-feature span {
+            font-size: 1rem;
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        /* TREATMENTS SECTION - 6 CARDS */
+        .treatments-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .treatment-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(77, 133, 125, 0.20);
+            box-shadow: 
+                0 8px 24px rgba(95, 155, 149, 0.12),
+                0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 
+                0 20px 60px rgba(77, 133, 125, 0.25),
+                0 12px 32px rgba(0, 0, 0, 0.12);
+            border-color: var(--sage);
+        }
+
+        .treatment-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 4px 12px rgba(139, 168, 136, 0.30));
+            transition: all 0.3s ease;
+        }
+
+        .treatment-card:hover .treatment-icon {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 8px 20px rgba(139, 168, 136, 0.45));
+        }
+
+        .treatment-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.85rem;
+            color: var(--jade);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .treatment-card p {
+            color: var(--charcoal-light);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* ENHANCED GALLERY WITH FUNCTIONAL IMAGES */
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 8px 24px rgba(95, 155, 149, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.08);
+            height: 320px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 
+                0 20px 50px rgba(95, 155, 149, 0.30),
+                0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.75) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transform: translateY(20px);
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-title {
+            transform: translateY(0);
+        }
+
+        .gallery-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            transform: translateY(20px);
+            transition: transform 0.5s ease 0.1s;
+        }
+
+        .gallery-item:hover .gallery-description {
+            transform: translateY(0);
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .gallery-modal.active {
+            display: flex;
+        }
+
+        .gallery-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .gallery-modal img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--teal-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-modal-close:hover {
+            background: var(--teal-dark);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            min-height: 350px;
+        }
+
+        .testimonial {
+            position: absolute;
+            width: 100%;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 20px;
+            border: 1px solid rgba(95, 155, 149, 0.20);
+            box-shadow: 
+                0 12px 36px rgba(95, 155, 149, 0.15),
+                0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .testimonial-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--charcoal);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .testimonial-author {
+            font-size: 1.1rem;
+            color: var(--jade);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(95, 155, 149, 0.3);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(95, 155, 149, 0.5);
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: var(--teal-dark);
+            transform: scale(1.3);
+            border-color: var(--aqua);
+            box-shadow: 0 0 12px rgba(95, 155, 149, 0.5);
+        }
+
+        .booking-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 
+                0 16px 48px rgba(95, 155, 149, 0.20),
+                0 8px 24px rgba(0, 0, 0, 0.10);
+            border: 1px solid rgba(95, 155, 149, 0.25);
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 1.8rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.6rem;
+            color: var(--teal-dark);
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem 1.2rem;
+            border: 2px solid rgba(95, 155, 149, 0.25);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--charcoal);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal-dark);
+            background: white;
+            box-shadow: 0 6px 20px rgba(95, 155, 149, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, var(--jade), var(--forest));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            box-shadow: 
+                0 8px 24px rgba(77, 133, 125, 0.30),
+                0 4px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, var(--sage), var(--moss));
+            box-shadow: 
+                0 14px 36px rgba(139, 168, 136, 0.40),
+                0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            position: relative;
+            background: linear-gradient(135deg, var(--forest), var(--moss));
+            color: white;
+            padding: 4rem 2rem 2rem;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 2;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--aqua);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .social-links a:hover {
+            background: white;
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .social-links a:hover svg {
+            fill: var(--teal-dark);
+        }
+
+        .social-links svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+            transition: fill 0.3s ease;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 80px;
+                flex-direction: column;
+                background: rgba(253, 251, 248, 0.98);
+                backdrop-filter: blur(30px) saturate(180%);
+                width: 100%;
+                padding: 3rem 2rem;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+                transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                gap: 2rem;
+                align-items: flex-start;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image-container {
+                transform: none;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .treatments-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .booking-container {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 3C9.71573 3 3 9.71573 3 18C3 26.2843 9.71573 33 18 33C26.2843 33 33 26.2843 33 18C33 9.71573 26.2843 3 18 3Z" fill="#5F9B95"/>
+                    <path d="M18 8C12.4772 8 8 12.4772 8 18C8 23.5228 12.4772 28 18 28C23.5228 28 28 23.5228 28 18C28 12.4772 23.5228 8 18 8Z" fill="#C8E6E3"/>
+                    <circle cx="18" cy="18" r="5" fill="#FDFBF8"/>
+                    <path d="M14 15L18 18L22 15" stroke="#5F9B95" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Serenity
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-translate="navHome">Home</a></li>
+                <li><a href="#about" data-translate="navAbout">About</a></li>
+                <li><a href="#treatments" data-translate="navTreatments">Treatments</a></li>
+                <li><a href="#gallery" data-translate="navGallery">Gallery</a></li>
+                <li><a href="#testimonials" data-translate="navTestimonials">Testimonials</a></li>
+                <li><a href="#booking" data-translate="navBooking">Booking</a></li>
+                <li class="lang-switcher">
+                    <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="changeLanguage('de')">DE</button>
+                    <button class="lang-btn" onclick="changeLanguage('es')">ES</button>
+                    <button class="lang-btn" onclick="changeLanguage('bg')">BG</button>
+                </li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 data-translate="heroTitle">Discover Your Inner Peace</h1>
+            <p data-translate="heroSubtitle">Experience ultimate relaxation and rejuvenation in our sanctuary of tranquility</p>
+            <a href="#booking" class="cta-button" data-translate="heroButton">Book Your Experience</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <h2 class="section-title" data-translate="aboutTitle">About Us</h2>
+        <p class="section-subtitle" data-translate="aboutSubtitle">Where wellness meets luxury</p>
+        <div class="about-content">
+            <div class="about-image-container">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=900&fit=crop" alt="Spa Interior" />
+                <div class="about-image-overlay"></div>
+            </div>
+            <div class="about-text">
+                <h3 data-translate="aboutMainTitle">Your Journey to Wellness Begins Here</h3>
+                <p data-translate="aboutText1">At Serenity Spa & Wellness, we believe that true beauty and wellbeing come from within. Our sanctuary offers a harmonious blend of ancient healing traditions and modern therapeutic techniques, creating an oasis where you can escape the demands of daily life.</p>
+                <p data-translate="aboutText2">Founded with a passion for holistic wellness, our spa has become a haven for those seeking balance, renewal, and deep relaxation. Every treatment is thoughtfully designed to nurture your body, calm your mind, and uplift your spirit.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="#5F9B95">
+                            <path d="M16 4L18.5 13.5H28L20.5 19L23 28.5L16 23L9 28.5L11.5 19L4 13.5H13.5L16 4Z"/>
+                        </svg>
+                        <span data-translate="aboutFeature1">Expert Therapists</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="#5F9B95">
+                            <path d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z"/>
+                            <path d="M12 16L15 19L20 13" stroke="white" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span data-translate="aboutFeature2">Premium Products</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="#5F9B95">
+                            <rect x="8" y="8" width="16" height="16" rx="2"/>
+                            <path d="M12 12H20M12 16H20M12 20H17" stroke="white" stroke-width="2"/>
+                        </svg>
+                        <span data-translate="aboutFeature3">Personalized Care</span>
+                    </div>
+                    <div class="about-feature">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="#5F9B95">
+                            <path d="M16 8C12.686 8 10 10.686 10 14C10 18 16 24 16 24C16 24 22 18 22 14C22 10.686 19.314 8 16 8Z"/>
+                            <circle cx="16" cy="14" r="2" fill="white"/>
+                        </svg>
+                        <span data-translate="aboutFeature4">Serene Environment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="treatments" style="background: linear-gradient(135deg, rgba(200, 230, 227, 0.15), rgba(253, 251, 248, 0.3));">
+        <h2 class="section-title" data-translate="treatmentsTitle">Our Treatments</h2>
+        <p class="section-subtitle" data-translate="treatmentsSubtitle">Curated experiences for your complete wellbeing</p>
+        <div class="treatments-grid">
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <path d="M30 35C30 30 33 27 40 27C47 27 50 30 50 35C50 40 45 43 40 48C35 43 30 40 30 35Z" fill="#5F9B95"/>
+                    <circle cx="40" cy="50" r="8" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment1Title">Massage Therapy</h3>
+                <p data-translate="treatment1Text">Release tension and restore balance with our therapeutic massage treatments, tailored to your specific needs.</p>
+            </div>
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <circle cx="40" cy="35" r="15" fill="#5F9B95"/>
+                    <path d="M25 50C25 45 31 42 40 42C49 42 55 45 55 50C55 55 49 58 40 58C31 58 25 55 25 50Z" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment2Title">Facial Treatment</h3>
+                <p data-translate="treatment2Text">Revitalize your skin with our luxurious facials using premium organic products for a radiant, youthful glow.</p>
+            </div>
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <rect x="25" y="30" width="30" height="35" rx="3" fill="#5F9B95"/>
+                    <circle cx="40" cy="25" r="5" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment3Title">Body Scrub</h3>
+                <p data-translate="treatment3Text">Exfoliate and renew your skin with our invigorating body scrubs, leaving you feeling refreshed and smooth.</p>
+            </div>
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <path d="M40 20L35 35H25L33 43L30 58L40 50L50 58L47 43L55 35H45L40 20Z" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment4Title">Aromatherapy</h3>
+                <p data-translate="treatment4Text">Immerse yourself in healing scents that calm the mind, balance emotions, and enhance overall wellbeing.</p>
+            </div>
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <circle cx="40" cy="40" r="20" fill="none" stroke="#5F9B95" stroke-width="3"/>
+                    <circle cx="40" cy="40" r="12" fill="none" stroke="#5F9B95" stroke-width="3"/>
+                    <circle cx="40" cy="40" r="4" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment5Title">Wellness Package</h3>
+                <p data-translate="treatment5Text">Indulge in our comprehensive wellness package combining multiple treatments for the ultimate spa experience.</p>
+            </div>
+            <div class="treatment-card">
+                <svg class="treatment-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="38" fill="#C8E6E3" opacity="0.3"/>
+                    <path d="M25 45C25 38 30 33 40 33C50 33 55 38 55 45M30 50H50M32 55H48" stroke="#5F9B95" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="33" cy="30" r="3" fill="#5F9B95"/>
+                    <circle cx="47" cy="30" r="3" fill="#5F9B95"/>
+                </svg>
+                <h3 data-translate="treatment6Title">Hot Stone Therapy</h3>
+                <p data-translate="treatment6Text">Experience deep muscle relaxation as smooth, heated stones melt away stress and restore your inner harmony.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="gallery">
+        <h2 class="section-title" data-translate="galleryTitle">Gallery</h2>
+        <p class="section-subtitle" data-translate="gallerySubtitle">A glimpse into our sanctuary</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&h=600&fit=crop" alt="Relaxation Room">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery1Title">Relaxation Room</div>
+                    <div class="gallery-description" data-translate="gallery1Desc">Tranquil spaces designed for your complete peace and comfort</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?w=600&h=600&fit=crop" alt="Treatment Room">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery2Title">Treatment Room</div>
+                    <div class="gallery-description" data-translate="gallery2Desc">Private sanctuaries where healing and transformation occur</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=600&h=600&fit=crop" alt="Wellness Space">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery3Title">Wellness Space</div>
+                    <div class="gallery-description" data-translate="gallery3Desc">Harmonious environments that nurture body and soul</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=600&h=600&fit=crop" alt="Aromatherapy Corner">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery4Title">Aromatherapy Corner</div>
+                    <div class="gallery-description" data-translate="gallery4Desc">Immerse yourself in therapeutic scents and calming ambiance</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=600&h=600&fit=crop" alt="Meditation Garden">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery5Title">Meditation Garden</div>
+                    <div class="gallery-description" data-translate="gallery5Desc">Find serenity in our beautiful outdoor meditation spaces</div>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openGalleryModal(this)">
+                <img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=600&h=600&fit=crop" alt="Spa Reception">
+                <div class="gallery-overlay">
+                    <div class="gallery-title" data-translate="gallery6Title">Spa Reception</div>
+                    <div class="gallery-description" data-translate="gallery6Desc">Your journey begins in our welcoming and elegant reception area</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal" onclick="closeGalleryModal()">
+        <div class="gallery-modal-content" onclick="event.stopPropagation()">
+            <button class="gallery-modal-close" onclick="closeGalleryModal()">✕</button>
+            <img id="galleryModalImage" src="" alt="Gallery Image">
+        </div>
+    </div>
+
+    <section class="section" id="testimonials" style="background: linear-gradient(135deg, rgba(234, 219, 200, 0.15), rgba(253, 251, 248, 0.3));">
+        <h2 class="section-title" data-translate="testimonialsTitle">What Our Clients Say</h2>
+        <p class="section-subtitle" data-translate="testimonialsSubtitle">Real experiences from our valued guests</p>
+        <div class="testimonials-container">
+            <div class="testimonial active">
+                <p class="testimonial-text" data-translate="testimonial1Text">"An oasis of calm in the heart of the city. The massage was exceptional and the atmosphere absolutely serene. I left feeling completely renewed."</p>
+                <p class="testimonial-author" data-translate="testimonial1Author">— Sarah M.</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text" data-translate="testimonial2Text">"The facial treatment exceeded all my expectations. My skin has never looked better. The therapists are true professionals who deeply care about their craft."</p>
+                <p class="testimonial-author" data-translate="testimonial2Author">— Michael R.</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text" data-translate="testimonial3Text">"I come here monthly for the wellness package. It's my sanctuary. Every detail is perfect, from the soothing music to the aromatic scents and expert care."</p>
+                <p class="testimonial-author" data-translate="testimonial3Author">— Emma L.</p>
+            </div>
+        </div>
+        <div class="testimonial-dots">
+            <span class="dot active" onclick="showTestimonial(0)"></span>
+            <span class="dot" onclick="showTestimonial(1)"></span>
+            <span class="dot" onclick="showTestimonial(2)"></span>
+        </div>
+    </section>
+
+    <section class="section" id="booking">
+        <h2 class="section-title" data-translate="bookingTitle">Book Your Treatment</h2>
+        <p class="section-subtitle" data-translate="bookingSubtitle">Begin your journey to tranquility today</p>
+        <div class="booking-container">
+            <form class="booking-form" onsubmit="handleBooking(event)">
+                <div class="form-group">
+                    <label for="name" data-translate="formName">Name</label>
+                    <input type="text" id="name" name="name" required data-translate="formName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-translate="formEmail">Email</label>
+                    <input type="email" id="email" name="email" required data-translate="formEmail" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="service" data-translate="formService">Service</label>
+                    <select id="service" name="service" required>
+                        <option value="" data-translate="formServicePlaceholder">Select a service</option>
+                        <option value="massage" data-translate="formServiceOption1">Massage Therapy</option>
+                        <option value="facial" data-translate="formServiceOption2">Facial Treatment</option>
+                        <option value="body-scrub" data-translate="formServiceOption3">Body Scrub</option>
+                        <option value="aromatherapy" data-translate="formServiceOption4">Aromatherapy</option>
+                        <option value="wellness-package" data-translate="formServiceOption5">Wellness Package</option>
+                        <option value="hot-stone" data-translate="formServiceOption6">Hot Stone Therapy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date" data-translate="formDate">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-translate="formMessage">Additional Message</label>
+                    <textarea id="message" name="message" data-translate="formMessage" placeholder="Additional Message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn" data-translate="formSubmit">Book Now</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Serenity Spa</h3>
+                <p>Your sanctuary for wellness and rejuvenation in the heart of the city.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerContact">Contact</h3>
+                <p>123 Wellness Avenue</p>
+                <p>City Center, ST 12345</p>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Email: info@serenityspa.com</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerHours">Hours</h3>
+                <p data-translate="footerMonFri">Monday - Friday: 9AM - 8PM</p>
+                <p data-translate="footerSat">Saturday: 10AM - 6PM</p>
+                <p data-translate="footerSun">Sunday: 10AM - 5PM</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footerFollow">Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" fill="none" stroke="currentColor"/>
+                            <circle cx="17.5" cy="6.5" r="1.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footerCopyright">© 2025 Serenity Spa & Wellness. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                navHome: "Home",
+                navAbout: "About",
+                navTreatments: "Treatments",
+                navGallery: "Gallery",
+                navTestimonials: "Testimonials",
+                navBooking: "Booking",
+                heroTitle: "Discover Your Inner Peace",
+                heroSubtitle: "Experience ultimate relaxation and rejuvenation in our sanctuary of tranquility",
+                heroButton: "Book Your Experience",
+                aboutTitle: "About Us",
+                aboutSubtitle: "Where wellness meets luxury",
+                aboutMainTitle: "Your Journey to Wellness Begins Here",
+                aboutText1: "At Serenity Spa & Wellness, we believe that true beauty and wellbeing come from within. Our sanctuary offers a harmonious blend of ancient healing traditions and modern therapeutic techniques, creating an oasis where you can escape the demands of daily life.",
+                aboutText2: "Founded with a passion for holistic wellness, our spa has become a haven for those seeking balance, renewal, and deep relaxation. Every treatment is thoughtfully designed to nurture your body, calm your mind, and uplift your spirit.",
+                aboutFeature1: "Expert Therapists",
+                aboutFeature2: "Premium Products",
+                aboutFeature3: "Personalized Care",
+                aboutFeature4: "Serene Environment",
+                treatmentsTitle: "Our Treatments",
+                treatmentsSubtitle: "Curated experiences for your complete wellbeing",
+                treatment1Title: "Massage Therapy",
+                treatment1Text: "Release tension and restore balance with our therapeutic massage treatments, tailored to your specific needs.",
+                treatment2Title: "Facial Treatment",
+                treatment2Text: "Revitalize your skin with our luxurious facials using premium organic products for a radiant, youthful glow.",
+                treatment3Title: "Body Scrub",
+                treatment3Text: "Exfoliate and renew your skin with our invigorating body scrubs, leaving you feeling refreshed and smooth.",
+                treatment4Title: "Aromatherapy",
+                treatment4Text: "Immerse yourself in healing scents that calm the mind, balance emotions, and enhance overall wellbeing.",
+                treatment5Title: "Wellness Package",
+                treatment5Text: "Indulge in our comprehensive wellness package combining multiple treatments for the ultimate spa experience.",
+                treatment6Title: "Hot Stone Therapy",
+                treatment6Text: "Experience deep muscle relaxation as smooth, heated stones melt away stress and restore your inner harmony.",
+                galleryTitle: "Gallery",
+                gallerySubtitle: "A glimpse into our sanctuary",
+                gallery1Title: "Relaxation Room",
+                gallery1Desc: "Tranquil spaces designed for your complete peace and comfort",
+                gallery2Title: "Treatment Room",
+                gallery2Desc: "Private sanctuaries where healing and transformation occur",
+                gallery3Title: "Wellness Space",
+                gallery3Desc: "Harmonious environments that nurture body and soul",
+                gallery4Title: "Aromatherapy Corner",
+                gallery4Desc: "Immerse yourself in therapeutic scents and calming ambiance",
+                gallery5Title: "Meditation Garden",
+                gallery5Desc: "Find serenity in our beautiful outdoor meditation spaces",
+                gallery6Title: "Spa Reception",
+                gallery6Desc: "Your journey begins in our welcoming and elegant reception area",
+                testimonialsTitle: "What Our Clients Say",
+                testimonialsSubtitle: "Real experiences from our valued guests",
+                testimonial1Text: "An oasis of calm in the heart of the city. The massage was exceptional and the atmosphere absolutely serene. I left feeling completely renewed.",
+                testimonial1Author: "— Sarah M.",
+                testimonial2Text: "The facial treatment exceeded all my expectations. My skin has never looked better. The therapists are true professionals who deeply care about their craft.",
+                testimonial2Author: "— Michael R.",
+                testimonial3Text: "I come here monthly for the wellness package. It's my sanctuary. Every detail is perfect, from the soothing music to the aromatic scents and expert care.",
+                testimonial3Author: "— Emma L.",
+                bookingTitle: "Book Your Treatment",
+                bookingSubtitle: "Begin your journey to tranquility today",
+                formName: "Name",
+                formEmail: "Email",
+                formService: "Service",
+                formServicePlaceholder: "Select a service",
+                formServiceOption1: "Massage Therapy",
+                formServiceOption2: "Facial Treatment",
+                formServiceOption3: "Body Scrub",
+                formServiceOption4: "Aromatherapy",
+                formServiceOption5: "Wellness Package",
+                formServiceOption6: "Hot Stone Therapy",
+                formDate: "Preferred Date",
+                formMessage: "Additional Message",
+                formSubmit: "Book Now",
+                footerContact: "Contact",
+                footerHours: "Hours",
+                footerMonFri: "Monday - Friday: 9AM - 8PM",
+                footerSat: "Saturday: 10AM - 6PM",
+                footerSun: "Sunday: 10AM - 5PM",
+                footerFollow: "Follow Us",
+                footerCopyright: "© 2025 Serenity Spa & Wellness. All rights reserved."
+            },
+            de: {
+                navHome: "Startseite",
+                navAbout: "Über uns",
+                navTreatments: "Behandlungen",
+                navGallery: "Galerie",
+                navTestimonials: "Bewertungen",
+                navBooking: "Buchung",
+                heroTitle: "Entdecken Sie Ihren inneren Frieden",
+                heroSubtitle: "Erleben Sie ultimative Entspannung und Erneuerung in unserem Zufluchtsort der Ruhe",
+                heroButton: "Buchen Sie Ihr Erlebnis",
+                aboutTitle: "Über uns",
+                aboutSubtitle: "Wo Wellness auf Luxus trifft",
+                aboutMainTitle: "Ihre Reise zum Wohlbefinden beginnt hier",
+                aboutText1: "Im Serenity Spa & Wellness glauben wir, dass wahre Schönheit und Wohlbefinden von innen kommen. Unser Refugium bietet eine harmonische Mischung aus alten Heiltraditionen und modernen therapeutischen Techniken.",
+                aboutText2: "Gegründet mit einer Leidenschaft für ganzheitliches Wohlbefinden, ist unser Spa zu einem Hafen für diejenigen geworden, die nach Balance, Erneuerung und tiefer Entspannung suchen.",
+                aboutFeature1: "Experten-Therapeuten",
+                aboutFeature2: "Premium-Produkte",
+                aboutFeature3: "Individuelle Betreuung",
+                aboutFeature4: "Ruhige Umgebung",
+                treatmentsTitle: "Unsere Behandlungen",
+                treatmentsSubtitle: "Kuratierte Erlebnisse für Ihr vollständiges Wohlbefinden",
+                treatment1Title: "Massage-Therapie",
+                treatment1Text: "Lösen Sie Verspannungen und stellen Sie das Gleichgewicht mit unseren therapeutischen Massagebehandlungen wieder her.",
+                treatment2Title: "Gesichtsbehandlung",
+                treatment2Text: "Revitalisieren Sie Ihre Haut mit unseren luxuriösen Gesichtsbehandlungen mit Premium-Bioprodukten.",
+                treatment3Title: "Körperpeeling",
+                treatment3Text: "Peelen und erneuern Sie Ihre Haut mit unseren belebenden Körperpeelings.",
+                treatment4Title: "Aromatherapie",
+                treatment4Text: "Tauchen Sie ein in heilende Düfte, die den Geist beruhigen und das Wohlbefinden steigern.",
+                treatment5Title: "Wellness-Paket",
+                treatment5Text: "Gönnen Sie sich unser umfassendes Wellness-Paket für das ultimative Spa-Erlebnis.",
+                treatment6Title: "Hot Stone Therapie",
+                treatment6Text: "Erleben Sie tiefe Muskelentspannung, während glatte, erhitzte Steine Stress schmelzen.",
+                galleryTitle: "Galerie",
+                gallerySubtitle: "Ein Einblick in unser Refugium",
+                gallery1Title: "Entspannungsraum",
+                gallery1Desc: "Ruhige Räume für Ihren vollständigen Frieden und Komfort",
+                gallery2Title: "Behandlungsraum",
+                gallery2Desc: "Private Refugien, wo Heilung und Transformation stattfinden",
+                gallery3Title: "Wellness-Bereich",
+                gallery3Desc: "Harmonische Umgebungen, die Körper und Seele nähren",
+                gallery4Title: "Aromatherapie-Ecke",
+                gallery4Desc: "Tauchen Sie ein in therapeutische Düfte und beruhigendes Ambiente",
+                gallery5Title: "Meditationsgarten",
+                gallery5Desc: "Finden Sie Gelassenheit in unseren schönen Außenmeditationsräumen",
+                gallery6Title: "Spa-Rezeption",
+                gallery6Desc: "Ihre Reise beginnt in unserem einladenden und eleganten Empfangsbereich",
+                testimonialsTitle: "Was unsere Kunden sagen",
+                testimonialsSubtitle: "Echte Erfahrungen von unseren geschätzten Gästen",
+                testimonial1Text: "Eine Oase der Ruhe im Herzen der Stadt. Die Massage war außergewöhnlich und die Atmosphäre absolut gelassen. Ich verließ das Spa völlig erneuert.",
+                testimonial1Author: "— Sarah M.",
+                testimonial2Text: "Die Gesichtsbehandlung übertraf all meine Erwartungen. Meine Haut hat noch nie besser ausgesehen. Die Therapeuten sind wahre Profis.",
+                testimonial2Author: "— Michael R.",
+                testimonial3Text: "Ich komme monatlich für das Wellness-Paket hierher. Es ist mein Refugium. Jedes Detail ist perfekt.",
+                testimonial3Author: "— Emma L.",
+                bookingTitle: "Buchen Sie Ihre Behandlung",
+                bookingSubtitle: "Beginnen Sie Ihre Reise zur Ruhe heute",
+                formName: "Name",
+                formEmail: "E-Mail",
+                formService: "Dienstleistung",
+                formServicePlaceholder: "Wählen Sie eine Dienstleistung",
+                formServiceOption1: "Massage-Therapie",
+                formServiceOption2: "Gesichtsbehandlung",
+                formServiceOption3: "Körperpeeling",
+                formServiceOption4: "Aromatherapie",
+                formServiceOption5: "Wellness-Paket",
+                formServiceOption6: "Hot Stone Therapie",
+                formDate: "Bevorzugtes Datum",
+                formMessage: "Zusätzliche Nachricht",
+                formSubmit: "Jetzt buchen",
+                footerContact: "Kontakt",
+                footerHours: "Öffnungszeiten",
+                footerMonFri: "Montag - Freitag: 9-20 Uhr",
+                footerSat: "Samstag: 10-18 Uhr",
+                footerSun: "Sonntag: 10-17 Uhr",
+                footerFollow: "Folgen Sie uns",
+                footerCopyright: "© 2025 Serenity Spa & Wellness. Alle Rechte vorbehalten."
+            },
+            es: {
+                navHome: "Inicio",
+                navAbout: "Nosotros",
+                navTreatments: "Tratamientos",
+                navGallery: "Galería",
+                navTestimonials: "Testimonios",
+                navBooking: "Reservas",
+                heroTitle: "Descubre Tu Paz Interior",
+                heroSubtitle: "Experimenta la máxima relajación y rejuvenecimiento en nuestro santuario de tranquilidad",
+                heroButton: "Reserva Tu Experiencia",
+                aboutTitle: "Sobre Nosotros",
+                aboutSubtitle: "Donde el bienestar se encuentra con el lujo",
+                aboutMainTitle: "Tu Viaje al Bienestar Comienza Aquí",
+                aboutText1: "En Serenity Spa & Wellness, creemos que la verdadera belleza y el bienestar provienen del interior. Nuestro santuario ofrece una mezcla armoniosa de tradiciones curativas antiguas y técnicas terapéuticas modernas.",
+                aboutText2: "Fundado con una pasión por el bienestar holístico, nuestro spa se ha convertido en un refugio para aquellos que buscan equilibrio, renovación y relajación profunda.",
+                aboutFeature1: "Terapeutas Expertos",
+                aboutFeature2: "Productos Premium",
+                aboutFeature3: "Cuidado Personalizado",
+                aboutFeature4: "Ambiente Sereno",
+                treatmentsTitle: "Nuestros Tratamientos",
+                treatmentsSubtitle: "Experiencias seleccionadas para tu bienestar completo",
+                treatment1Title: "Terapia de Masajes",
+                treatment1Text: "Libera la tensión y restaura el equilibrio con nuestros tratamientos de masaje terapéutico.",
+                treatment2Title: "Tratamiento Facial",
+                treatment2Text: "Revitaliza tu piel con nuestros lujosos faciales utilizando productos orgánicos premium.",
+                treatment3Title: "Exfoliante Corporal",
+                treatment3Text: "Exfolia y renueva tu piel con nuestros vigorizantes exfoliantes corporales.",
+                treatment4Title: "Aromaterapia",
+                treatment4Text: "Sumérgete en aromas curativos que calman la mente y mejoran el bienestar general.",
+                treatment5Title: "Paquete de Bienestar",
+                treatment5Text: "Disfruta de nuestro paquete integral de bienestar para la experiencia de spa definitiva.",
+                treatment6Title: "Terapia de Piedras Calientes",
+                treatment6Text: "Experimenta la relajación muscular profunda mientras las piedras calientes derriten el estrés.",
+                galleryTitle: "Galería",
+                gallerySubtitle: "Un vistazo a nuestro santuario",
+                gallery1Title: "Sala de Relajación",
+                gallery1Desc: "Espacios tranquilos diseñados para tu completa paz y comodidad",
+                gallery2Title: "Sala de Tratamiento",
+                gallery2Desc: "Santuarios privados donde ocurre la curación y transformación",
+                gallery3Title: "Espacio de Bienestar",
+                gallery3Desc: "Ambientes armoniosos que nutren cuerpo y alma",
+                gallery4Title: "Rincón de Aromaterapia",
+                gallery4Desc: "Sumérgete en aromas terapéuticos y ambiente relajante",
+                gallery5Title: "Jardín de Meditación",
+                gallery5Desc: "Encuentra serenidad en nuestros hermosos espacios de meditación al aire libre",
+                gallery6Title: "Recepción del Spa",
+                gallery6Desc: "Tu viaje comienza en nuestra acogedora y elegante área de recepción",
+                testimonialsTitle: "Lo Que Dicen Nuestros Clientes",
+                testimonialsSubtitle: "Experiencias reales de nuestros valiosos huéspedes",
+                testimonial1Text: "Un oasis de calma en el corazón de la ciudad. El masaje fue excepcional y la atmósfera absolutamente serena. Salí sintiéndome completamente renovada.",
+                testimonial1Author: "— Sarah M.",
+                testimonial2Text: "El tratamiento facial superó todas mis expectativas. Mi piel nunca se ha visto mejor. Los terapeutas son verdaderos profesionales.",
+                testimonial2Author: "— Michael R.",
+                testimonial3Text: "Vengo aquí mensualmente para el paquete de bienestar. Es mi santuario. Cada detalle es perfecto.",
+                testimonial3Author: "— Emma L.",
+                bookingTitle: "Reserve Su Tratamiento",
+                bookingSubtitle: "Comience su viaje hacia la tranquilidad hoy",
+                formName: "Nombre",
+                formEmail: "Correo Electrónico",
+                formService: "Servicio",
+                formServicePlaceholder: "Seleccione un servicio",
+                formServiceOption1: "Terapia de Masajes",
+                formServiceOption2: "Tratamiento Facial",
+                formServiceOption3: "Exfoliante Corporal",
+                formServiceOption4: "Aromaterapia",
+                formServiceOption5: "Paquete de Bienestar",
+                formServiceOption6: "Terapia de Piedras Calientes",
+                formDate: "Fecha Preferida",
+                formMessage: "Mensaje Adicional",
+                formSubmit: "Reservar Ahora",
+                footerContact: "Contacto",
+                footerHours: "Horario",
+                footerMonFri: "Lunes - Viernes: 9h - 20h",
+                footerSat: "Sábado: 10h - 18h",
+                footerSun: "Domingo: 10h - 17h",
+                footerFollow: "Síguenos",
+                footerCopyright: "© 2025 Serenity Spa & Wellness. Todos los derechos reservados."
+            },
+            bg: {
+                navHome: "Начало",
+                navAbout: "За нас",
+                navTreatments: "Процедури",
+                navGallery: "Галерия",
+                navTestimonials: "Отзиви",
+                navBooking: "Резервация",
+                heroTitle: "Открийте Вашия Вътрешен Мир",
+                heroSubtitle: "Насладете се на пълна релаксация и подмладяване в нашето убежище на спокойствието",
+                heroButton: "Резервирайте Вашето Изживяване",
+                aboutTitle: "За Нас",
+                aboutSubtitle: "Където уелнесът среща лукса",
+                aboutMainTitle: "Вашето Пътуване към Благополучието Започва Тук",
+                aboutText1: "В Serenity Spa & Wellness вярваме, че истинската красота и благополучие идват отвътре. Нашето убежище предлага хармонична комбинация от древни лечебни традиции и модерни терапевтични техники.",
+                aboutText2: "Основано сPassion за холистично благополучие, нашето спа се превърна в убежище за тези, които търсят баланс, обновяване и дълбока релаксация.",
+                aboutFeature1: "Експертни Терапевти",
+                aboutFeature2: "Премиум Продукти",
+                aboutFeature3: "Персонализирана Грижа",
+                aboutFeature4: "Спокойна Среда",
+                treatmentsTitle: "Нашите Процедури",
+                treatmentsSubtitle: "Подбрани изживявания за вашето пълно благополучие",
+                treatment1Title: "Масажна Терапия",
+                treatment1Text: "Освободете напрежението и възстановете баланса с нашите терапевтични масажни процедури.",
+                treatment2Title: "Козметична Процедура",
+                treatment2Text: "Подмладете кожата си с нашите луксозни процедури, използващи премиум органични продукти.",
+                treatment3Title: "Пилинг за Тяло",
+                treatment3Text: "Ексфолирайте и обновете кожата си с нашите ободряващи пилинги за тяло.",
+                treatment4Title: "Ароматерапия",
+                treatment4Text: "Потопете се в лечебни аромати, които успокояват ума и подобряват общото благополучие.",
+                treatment5Title: "Уелнес Пакет",
+                treatment5Text: "Насладете се на нашия цялостен уелнес пакет за най-доброто спа изживяване.",
+                treatment6Title: "Терапия с Горещи Камъни",
+                treatment6Text: "Изпитайте дълбока мускулна релаксация, докато гладките, нагрети камъни разтопяват стреса.",
+                galleryTitle: "Галерия",
+                gallerySubtitle: "Поглед към нашето убежище",
+                gallery1Title: "Стая за Релаксация",
+                gallery1Desc: "Спокойни пространства, проектирани за вашия пълен мир и комфорт",
+                gallery2Title: "Стая за Процедури",
+                gallery2Desc: "Частни убежища, където се случва лечение и трансформация",
+                gallery3Title: "Уелнес Пространство",
+                gallery3Desc: "Хармонични среди, които подхранват тяло и душа",
+                gallery4Title: "Ъгъл за Ароматерапия",
+                gallery4Desc: "Потопете се в терапевтични аромати и успокояваща атмосфера",
+                gallery5Title: "Медитационна Градина",
+                gallery5Desc: "Намерете спокойствие в нашите красиви открити пространства за медитация",
+                gallery6Title: "Спа Рецепция",
+                gallery6Desc: "Вашето пътуване започва в нашата приветлива и елегантна зона за рецепция",
+                testimonialsTitle: "Какво казват нашите клиенти",
+                testimonialsSubtitle: "Реални преживявания от нашите ценени гости",
+                testimonial1Text: "Оазис на спокойствие в сърцето на града. Масажът беше изключителен, а атмосферата абсолютно спокойна. Излязох чувствайки се напълно обновена.",
+                testimonial1Author: "— Сара М.",
+                testimonial2Text: "Козметичната процедура надмина всички мои очаквания. Кожата ми никога не е изглеждала по-добре. Терапевтите са истински професионалисти, които се грижат дълбоко за занаята си.",
+                testimonial2Author: "— Михаел Р.",
+                testimonial3Text: "Идвам тук ежемесечно за уелнес пакета. Това е моето убежище. Всеки детайл е перфектен, от успокояващата музика до ароматните миризми и експертната грижа.",
+                testimonial3Author: "— Ема Л.",
+                bookingTitle: "Запазете вашата процедура",
+                bookingSubtitle: "Започнете вашето пътуване към спокойствието днес",
+                formName: "Име",
+                formEmail: "Имейл",
+                formService: "Услуга",
+                formServicePlaceholder: "Изберете услуга",
+                formServiceOption1: "Масажна терапия",
+                formServiceOption2: "Козметична процедура",
+                formServiceOption3: "Пилинг за тяло",
+                formServiceOption4: "Ароматерапия",
+                formServiceOption5: "Уелнес пакет",
+                formServiceOption6: "Терапия с горещи камъни",
+                formDate: "Предпочитана дата",
+                formMessage: "Допълнително съобщение",
+                formSubmit: "Запази сега",
+                footerContact: "Контакт",
+                footerHours: "Работно време",
+                footerMonFri: "Понеделник - Петък: 9ч - 20ч",
+                footerSat: "Събота: 10ч - 18ч",
+                footerSun: "Неделя: 10ч - 17ч",
+                footerFollow: "Последвайте ни",
+                footerCopyright: "© 2025 Serenity Spa & Wellness. Всички права запазени."
+            }
+        };
+
+        let currentLang = 'en';
+        let currentTestimonial = 0;
+        let testimonialInterval;
+
+        // Smooth page load
+        document.body.style.opacity = '0';
+        window.addEventListener('load', () => {
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '1';
+        });
+
+        // Optimized scroll handler with passive listener
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const header = document.getElementById('header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else if (element.tagName === 'OPTION') {
+                        element.textContent = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function showTestimonial(index) {
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.dot');
+            
+            testimonials.forEach(t => t.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % 3;
+            showTestimonial(currentTestimonial);
+        }
+
+        function startTestimonialSlider() {
+            testimonialInterval = setInterval(nextTestimonial, 7000);
+        }
+
+        function openGalleryModal(element) {
+            const modal = document.getElementById('galleryModal');
+            const modalImg = document.getElementById('galleryModalImage');
+            const img = element.querySelector('img');
+            
+            modalImg.src = img.src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            const messages = {
+                en: `Thank you! Your booking request has been received. We will contact you shortly to confirm your appointment.`,
+                de: `Vielen Dank! Ihre Buchungsanfrage wurde empfangen. Wir werden Sie in Kürze kontaktieren, um Ihren Termin zu bestätigen.`,
+                es: `¡Gracias! Se ha recibido su solicitud de reserva. Nos pondremos en contacto con usted en breve para confirmar su cita.`,
+                bg: `Благодарим! Вашата заявка за резервация е получена. Скоро ще се свържем с вас, за да потвърдим часа.`
+            };
+            
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✓ ' + (currentLang === 'en' ? 'Sent!' : currentLang === 'de' ? 'Gesendet!' : currentLang === 'es' ? '¡Enviado!' : 'Изпратено!');
+            submitBtn.style.background = 'linear-gradient(135deg, #4A8078, #3D6B65)';
+            
+            setTimeout(() => {
+                alert(messages[currentLang]);
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = '';
+                event.target.reset();
+            }, 800);
+        }
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const btn = event.target;
+            navLinks.classList.toggle('active');
+            btn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const target = document.querySelector(targetId);
+                
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    const navLinks = document.getElementById('navLinks');
+                    navLinks.classList.remove('active');
+                    const btn = document.querySelector('.mobile-menu-btn');
+                    if (btn) btn.textContent = '☰';
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.treatment-card, .gallery-item');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.08}s, transform 0.5s ease ${index * 0.08}s`;
+                observer.observe(card);
+            });
+
+            const minDate = new Date();
+            minDate.setDate(minDate.getDate() + 1);
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                dateInput.setAttribute('min', minDate.toISOString().split('T')[0]);
+            }
+        });
+
+        startTestimonialSlider();
+
+        document.addEventListener('click', (e) => {
+            const navLinks = document.getElementById('navLinks');
+            const btn = document.querySelector('.mobile-menu-btn');
+            const logo = document.querySelector('.logo');
+            
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !btn.contains(e.target) &&
+                !logo.contains(e.target)) {
+                navLinks.classList.remove('active');
+                btn.textContent = '☰';
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGalleryModal();
+            }
+        });
+    </script>
+</body>
+</html>
